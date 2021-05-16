@@ -11,7 +11,6 @@ const setupConsumer = async () => {
     await channel.assertQueue("message");
 
     channel.consume("message", (data) => {
-      //might have to do Buffer.from first
       if (data) {
         console.log(data.content.toString());
         channel.ack(data);
